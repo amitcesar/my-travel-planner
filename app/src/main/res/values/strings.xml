@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TravelPlanner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_distance">Insira a distância a ser percorrida (em km)</string>
+    <string name="text_consumption">Insira o consumo médio do veículo (em km/L)</string>
+    <string name="text_price">Insira o preço médio do combustível (por litro)</string>
+    <string name="tv_text">Meu Planejador de viagem! ✈️</string>
+    <string name="btn_start_text">Começar</string>
+</resources>

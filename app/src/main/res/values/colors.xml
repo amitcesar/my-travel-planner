@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cores do Material Design -->
+    <color name="purple_dark">#5E60CE</color>
+    <color name="purple">#8284FA</color>
+    <color name="blue_dark">#1E6F9F</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <!-- Cores do seu app -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_light">#FFE0E0E0</color>
+    <color name="gray_600">#1A1A1A</color>
+    <color name="gray_500">#262626</color>
+
+    <color name="gray_dark">#FF121212</color>
+    <color name="danger">#E25858</color>
+    <color name="blue">#3F51B5</color>
+    3F51B5
+
+
+    <color name="content_primary">#FFFFFF</color>
+    <color name="content_secondary">#C7C9CC</color>
+    <color name="content_tertiary">#D9D9D9</color>
+    <color name="content_brand">#C58DE7</color>
+    <color name="content_inverse">#030203</color>
+
+    <color name="background_primary">#020202</color>
+    <color name="background_secondary">#111012</color>
+    <color name="background_tertiary">#24222E</color>
+    <color name="background_brand">#C58DE7</color>
+    <color name="background_gray">#3D3D3D</color>
+
+    <color name="accent_pink">#D586E0</color>
+    <color name="accent_blue">#91A1FA</color>
+    <color name="accent_green">#77C0A0</color>
+    <color name="accent_lime">#D1DC97</color>
+    <color name="accent_red">#E9A9B3</color>
+</resources>

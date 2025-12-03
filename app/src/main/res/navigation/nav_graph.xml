@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/distanceFragment">
+
+    <fragment
+        android:id="@+id/distanceFragment"
+        android:name="com.github.amitcesar.travelplanner.DistanceFragment"
+        android:label="fragment_distance"
+        tools:layout="@layout/fragment_distance" >
+        <action
+            android:id="@+id/action_distanceFragment_to_averageConsumptionFragment"
+            app:destination="@id/averageConsumptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/averageConsumptionFragment"
+        android:name="com.github.amitcesar.travelplanner.AverageConsumptionFragment"
+        android:label="fragment_average_consumption"
+        tools:layout="@layout/fragment_average_consumption" >
+        <action
+            android:id="@+id/action_averageConsumptionFragment_to_priceFragment"
+            app:destination="@id/priceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/priceFragment"
+        android:name="com.github.amitcesar.travelplanner.PriceFragment"
+        android:label="fragment_price"
+        tools:layout="@layout/fragment_price" />
+</navigation>
