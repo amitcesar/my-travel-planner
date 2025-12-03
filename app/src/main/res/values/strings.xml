@@ -7,4 +7,8 @@
     <string name="text_price">Insira o preço médio do combustível (por litro)</string>
     <string name="tv_text">Meu Planejador de viagem! ✈️</string>
     <string name="btn_start_text">Começar</string>
+    <string name="btn_next_stage">Proxima etapa</string>
+    <string name="btn_back_button">VOLTAR</string>
+
+
 </resources>

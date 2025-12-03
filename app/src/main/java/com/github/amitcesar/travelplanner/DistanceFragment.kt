@@ -18,6 +18,7 @@ class DistanceFragment : Fragment() {
 
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,17 +31,7 @@ class DistanceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun setupEditListener() {
-        binding.editDistanceValue.setOnFocusChangeListener {_, hasFocus ->
-            if(!hasFocus) {
-                val value = binding.editDistanceValue.text.toString()
-                if (value.isEmpty() || value.toInt() < 1) {
-                    binding.editDistanceValue.setText("1")
-                }
-            }
 
-        }
-    }
 
     override fun onDestroy() {
         super.onDestroy()
