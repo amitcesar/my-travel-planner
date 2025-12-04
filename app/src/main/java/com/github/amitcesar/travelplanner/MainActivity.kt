@@ -27,9 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupSystemBars()
-
         setupButtonListeners()
-
+        setupNavigationListener()
     }
 
 
@@ -48,52 +47,55 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupButtonListeners() {
         binding.btnStart.setOnClickListener {
-
-
             when(navController?.currentDestination?.id) {
                 R.id.startFragment -> {
                     navController?.navigate(R.id.distanceFragment)
-                    binding.tvSubtitle.visibility = View.VISIBLE
-                    binding.btnStart.text = "Começar"
-
                 }
                 R.id.distanceFragment -> {
                     navController?.navigate(R.id.averageConsumptionFragment)
-                    binding.tvSubtitle.visibility = View.GONE
-                    binding.btnStart.text = "Próximo"
                 }
                 R.id.averageConsumptionFragment -> {
                     navController?.navigate(R.id.priceFragment)
-                    binding.tvSubtitle.visibility = View.GONE
-                    binding.btnStart.text = "Próximo"
                 }
                 R.id.priceFragment -> {
-                    binding.tvSubtitle.visibility = View.GONE
-                    binding.btnStart.text = "Recomeçar"
                     navController?.popBackStack(R.id.startFragment, false)
-
                 }
             }
-
-
-
-
-
-
         }
-
     }
 
+    private fun updateUI(destinationId: Int) {
 
+        when (destinationId) {
+            R.id.startFragment -> {
+                binding.tvSubtitle.visibility = View.VISIBLE
+                binding.btnStart.visibility = View.VISIBLE
 
+            }
+            R.id.distanceFragment -> {
 
+                binding.tvSubtitle.visibility = View.GONE
+                binding.btnStart.visibility = View.GONE
 
+            }
+            R.id.averageConsumptionFragment -> {
+                binding.tvSubtitle.visibility = View.GONE
+                binding.btnStart.visibility = View.GONE
 
+            }
+            R.id.priceFragment -> {
+                binding.tvSubtitle.visibility = View.GONE
+                binding.btnStart.visibility = View.GONE
 
+            }
+        }
+    }
 
-
-
-
+    private fun setupNavigationListener(){
+        navController?.addOnDestinationChangedListener { _, destination, _ ->
+            updateUI(destination.id)
+        }
+    }
 }
 
 
