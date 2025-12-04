@@ -2,26 +2,31 @@ package com.github.amitcesar.travelplanner
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
 import com.github.amitcesar.travelplanner.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var isFragmentVisible = false
 
+
+    private val navController by lazy {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        as? NavHostFragment
+        navHostFragment?.navController
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-     setupSystemBars()
+        setupSystemBars()
 
         setupButtonListeners()
 
@@ -43,35 +48,47 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupButtonListeners() {
         binding.btnStart.setOnClickListener {
-            if (!isFragmentVisible) {
-                showFragment()
-            } else {
-                hideFragment()
+
+
+            when(navController?.currentDestination?.id) {
+                R.id.startFragment -> {
+                    navController?.navigate(R.id.distanceFragment)
+                    binding.tvSubtitle.visibility = View.VISIBLE
+                    binding.btnStart.text = "Começar"
+
+                }
+                R.id.distanceFragment -> {
+                    navController?.navigate(R.id.averageConsumptionFragment)
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Próximo"
+                }
+                R.id.averageConsumptionFragment -> {
+                    navController?.navigate(R.id.priceFragment)
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Próximo"
+                }
+                R.id.priceFragment -> {
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Recomeçar"
+                    navController?.popBackStack(R.id.startFragment, false)
+
+                }
             }
 
-            isFragmentVisible = !isFragmentVisible
+
+
+
+
 
         }
-    }
-
-    private fun showFragment(){
-        binding.fragmentContainer.visibility = View.VISIBLE
-        binding.btnStart.text = "Voltar"
-
-        val firstFragment = DistanceFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, firstFragment)
-            .addToBackStack(null)
-            .commit()
-    }
-
-    private fun hideFragment(){
-        binding.btnStart.text = "Começar"
-        binding.fragmentContainer.visibility = View.GONE
-        supportFragmentManager.popBackStack()
-
 
     }
+
+
+
+
+
+
 
 
 

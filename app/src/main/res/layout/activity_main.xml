@@ -39,11 +39,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/tv_subtitle"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                />
+
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:visibility="gone"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/nav_graph"
@@ -52,7 +66,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/btn_start"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
 
                 />
 
@@ -71,7 +85,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                  />
 
 
