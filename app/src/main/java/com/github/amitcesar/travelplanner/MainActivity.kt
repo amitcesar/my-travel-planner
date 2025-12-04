@@ -48,19 +48,36 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupButtonListeners() {
         binding.btnStart.setOnClickListener {
-            when(binding.btnStart.text.toString()) {
-                getString(R.string.btn_start_text) -> {
+
+
+            when(navController?.currentDestination?.id) {
+                R.id.startFragment -> {
                     navController?.navigate(R.id.distanceFragment)
-                    binding.btnStart.text = getString(R.string.btn_back_button)
+                    binding.tvSubtitle.visibility = View.VISIBLE
+                    binding.btnStart.text = "Começar"
+
                 }
-                getString(R.string.btn_back_button) -> {
-                    binding.btnStart.text = getString(R.string.btn_back_button)
+                R.id.distanceFragment -> {
+                    navController?.navigate(R.id.averageConsumptionFragment)
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Próximo"
                 }
-                else -> {
-                    binding.btnStart.text = getString(R.string.btn_start_text)
+                R.id.averageConsumptionFragment -> {
+                    navController?.navigate(R.id.priceFragment)
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Próximo"
+                }
+                R.id.priceFragment -> {
+                    binding.tvSubtitle.visibility = View.GONE
+                    binding.btnStart.text = "Recomeçar"
+                    navController?.popBackStack(R.id.startFragment, false)
+
+                }
             }
 
-        }
+
+
+
 
 
         }

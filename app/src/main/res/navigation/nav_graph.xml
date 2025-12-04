@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/distanceFragment">
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.github.amitcesar.travelplanner.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" />
 
     <fragment
         android:id="@+id/distanceFragment"
@@ -31,4 +37,5 @@
         android:name="com.github.amitcesar.travelplanner.PriceFragment"
         android:label="fragment_price"
         tools:layout="@layout/fragment_price" />
+
 </navigation>
