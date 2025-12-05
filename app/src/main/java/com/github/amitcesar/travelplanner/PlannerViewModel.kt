@@ -36,9 +36,9 @@ class PlannerViewModel : ViewModel(){
             0.0
         }
 
-        // Chama seu setter para atualizar o StateFlow
+
         setTotalCost(total)
-        // 1. Formatação da String do Log
+
         val logMessage = """
         Distância: ${distance.toInt()} km
         Consumo: ${consumption} km/L
