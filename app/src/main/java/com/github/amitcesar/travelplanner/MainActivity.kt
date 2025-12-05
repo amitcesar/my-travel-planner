@@ -58,8 +58,14 @@ class MainActivity : AppCompatActivity() {
                     navController?.navigate(R.id.priceFragment)
                 }
                 R.id.priceFragment -> {
-                    navController?.popBackStack(R.id.startFragment, false)
+//                    navController?.popBackStack(R.id.startFragment, false)
+
+                    navController?.navigate(R.id.costResultsFragment)
                 }
+                R.id.costResultsFragment -> {
+                    navController?.navigate(R.id.startFragment)
+                }
+
             }
         }
     }
@@ -86,8 +92,13 @@ class MainActivity : AppCompatActivity() {
             R.id.priceFragment -> {
                 binding.tvSubtitle.visibility = View.GONE
                 binding.btnStart.visibility = View.GONE
-
             }
+            R.id.costResultsFragment -> {
+                binding.tvSubtitle.visibility = View.GONE
+                binding.btnStart.visibility = View.VISIBLE
+                binding.btnStart.text = "Planejar Outra Viagem"
+            }
+
         }
     }
 

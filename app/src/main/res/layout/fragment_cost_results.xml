@@ -7,21 +7,74 @@
     android:padding="16dp"
     android:background="@color/background_tertiary"
     tools:context=".CostResultsFragment">
-
-
+    
 
     <TextView
-        android:id="@+id/tv_cost_result_title"
-        android:layout_width="0dp"
+        android:id="@+id/tv_cost_result_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="custo da viagem: "
-        android:textColor="#E0E0E0"
+        tools:text="Custo estimado da viagem: "
+        android:padding="12dp"
         android:textSize="24sp"
         android:textStyle="bold"
-
-
+        android:textColor="@color/content_secondary"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/flow_cost_results_helper"
         />
+    <TextView
+        android:id="@+id/tv_distance_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gray_light"
+        tools:text="Distância: 500 km"
+        />
+
+    <TextView
+        android:id="@+id/tv_consumption_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gray_light"
+        tools:text="Consumo: 10 km/L"
+        />
+
+    <TextView
+        android:id="@+id/tv_price_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gray_light"
+        tools:text="Preço do Combustível: R$ 6,50"
+        />
+
+    <TextView
+        android:id="@+id/tv_total_cost_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/content_brand"
+        android:layout_marginTop="16dp"
+        tools:text="Custo Total Estimado: R$ 325,00"
+        />
+
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_cost_results_helper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flow_maxElementsWrap="1"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_cost_result_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 
 
 

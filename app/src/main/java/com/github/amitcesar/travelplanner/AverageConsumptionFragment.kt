@@ -47,22 +47,24 @@ class AverageConsumptionFragment : Fragment() {
         }
 
         binding.btnNext.setOnClickListener {
-            findNavController()
-                .navigate(R.id.action_averageConsumptionFragment_to_priceFragment)
 
-            val consumption = binding.editConsumptionValue.text.toString()
+            val consumptionText = binding.editConsumptionValue.text.toString()
 
-            if (consumption.isEmpty()){
+            if (consumptionText.isEmpty() || consumptionText.toDoubleOrNull() == null || consumptionText.toDoubleOrNull() == 0.0){
                 binding.editConsumptionValue.error = "Digite um valor para o campo"
                 return@setOnClickListener
             }
+
+            findNavController()
+                .navigate(R.id.action_averageConsumptionFragment_to_priceFragment)
+
         }
     }
 
     private fun inputOnChanged(){
         binding.editConsumptionValue.addTextChangedListener{ inputText ->
             viewModel.setAverageConsumptionInputValue(
-                averageConsumptionValue = inputText.toString().toIntOrNull() ?: 0
+                averageConsumptionValue = inputText.toString().toDoubleOrNull() ?: 0.0
             )
         }
     }

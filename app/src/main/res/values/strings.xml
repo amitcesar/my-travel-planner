@@ -10,6 +10,7 @@
     <string name="btn_next_stage">Proxima etapa</string>
     <string name="btn_back_button">VOLTAR</string>
     <string name="tv_subtitle">Calcule o custo estimado de sua próxima viagem!</string>
+    <string name="estimated_cost_text">custo estimado da viagem: </string>
 
 
 </resources>

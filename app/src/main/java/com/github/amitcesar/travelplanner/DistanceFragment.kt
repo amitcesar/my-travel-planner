@@ -1,7 +1,6 @@
 package com.github.amitcesar.travelplanner
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,8 +42,7 @@ class DistanceFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-    // TO DO - FAZER UMA FUN SEPARADA PARA VALIDACAO DE CAMPOOS.
+    
     private fun setupButtonListeners() {
 
         binding.btnBack.setOnClickListener {
@@ -54,15 +52,15 @@ class DistanceFragment : Fragment() {
 
         binding.btnNext.setOnClickListener {
 
-            findNavController()
-                .navigate(R.id.action_distanceFragment_to_averageConsumptionFragment)
+            val distanceText = binding.editDistanceValue.text.toString()
 
-            val distance = binding.editDistanceValue.text.toString()
-
-            if (distance.isEmpty()){
+            if (distanceText.isEmpty() || distanceText.toDoubleOrNull() == null || distanceText.toDoubleOrNull() == 0.0){
                 binding.editDistanceValue.error = "Digite uma distância"
                 return@setOnClickListener
             }
+
+            findNavController()
+                .navigate(R.id.action_distanceFragment_to_averageConsumptionFragment)
         }
 
     }
@@ -70,7 +68,7 @@ class DistanceFragment : Fragment() {
     private fun inputOnChanged() {
         binding.editDistanceValue.addTextChangedListener { inputText ->
             viewModel.setDistanceInputValue(
-                distanceValue = inputText.toString().toIntOrNull() ?: 0
+                distanceValue =  inputText.toString().toDoubleOrNull() ?: 0.0
             )
         }
     }

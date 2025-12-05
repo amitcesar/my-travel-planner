@@ -47,26 +47,28 @@ class PriceFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
 
-
         }
+
         binding.btnNext.setOnClickListener {
 
-            findNavController().popBackStack(R.id.startFragment, false)
+            val priceText = binding.editPriceValue.text.toString()
+            if (priceText.isEmpty() || priceText.toDoubleOrNull() == null || priceText.toDoubleOrNull() == 0.0){
 
-            val price = binding.editPriceValue.text.toString()
-            if (price.isEmpty()){
-
-                binding.editPriceValue.error = "Digite uma distância"
+                binding.editPriceValue.error = "Digite o preco corretamente"
                 return@setOnClickListener
             }
+
+            findNavController().navigate(R.id.action_priceFragment_to_costResultsFragment)
+
+
         }
 
     }
 
     private fun inputOnChanged() {
         binding.editPriceValue.addTextChangedListener{ inputText ->
-            viewModel.setDistanceInputValue(
-                distanceValue = inputText.toString().toIntOrNull() ?: 0
+            viewModel.setPriceInputValue(
+                priceValue = inputText.toString().toDoubleOrNull() ?: 0.0
             )
 
         }
